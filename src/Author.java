@@ -36,4 +36,24 @@ public class Author {
             return this.firstName + " " + this.secondName + " " + lastName + ". ";
         }
     }
+
+    public int hashCode() {
+        int resultHashCode = firstName.hashCode();
+        resultHashCode += lastName.hashCode() * 29;
+        return resultHashCode;
+    }
+
+    public boolean equals(Author a) {
+        if (firstName == null || lastName == null) {
+            return false;
+        }
+        if (this.firstName == a.firstName && this.lastName == a.lastName) {
+            return true;
+        } else if (this.firstName == a.firstName && this.secondName == a.secondName && this.lastName == a.lastName) {
+            return true;
+        }
+        return false;
+    }
+
 }
+

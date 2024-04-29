@@ -29,4 +29,18 @@ public class Book {
     public String toString() {
         return "Автор - " + author + " Название - " + title + ". год выхода - " + yearOfPublishing + ".";
     }
+
+    public int hashCode() {
+        int resultHashCode = title.hashCode();
+        resultHashCode += author.hashCode() * 29;
+        resultHashCode += yearOfPublishing;
+        return resultHashCode;
+    }
+
+    public boolean equals(Book book) {
+        if (this.title == book.title && this.yearOfPublishing == book.yearOfPublishing && this.author == book.author) {
+            return true;
+        }
+        return false;
+    }
 }
