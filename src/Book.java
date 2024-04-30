@@ -43,7 +43,7 @@ public class Book {
         if (this.hashCode() != other.hashCode() || this.getClass() != other.getClass()) {
             return false;
         }
-        if (this.yearOfPublishing == ((Book) other).yearOfPublishing && this.author == ((Book) other).author && this.title == ((Book) other).title) {
+        if (this.yearOfPublishing == ((Book) other).yearOfPublishing && this.author.equals(((Book) other).author) && this.title.equals(((Book) other).title)) {
             return true;
         }
         return this.toString().equals(other.toString());

@@ -48,10 +48,15 @@ public class Author {
         if (this.hashCode() != other.hashCode() || this.getClass() != other.getClass()) {
             return false;
         }
-        if (this.firstName == ((Author) other).firstName && this.secondName == ((Author) other).secondName && this.lastName == ((Author) other).lastName) {
-            return true;
+        if (this.secondName != null) {
+            if (this.firstName.equals(((Author) other).firstName) && this.secondName.equals(((Author) other).secondName) && this.lastName.equals(((Author) other).lastName)) {
+                return true;
+            }
+        } else {
+            if (this.firstName.equals(((Author) other).firstName) && this.lastName.equals(((Author) other).lastName)) {
+                return true;
+            }
         }
         return this.toString().equals(other.toString());
     }
 }
-
