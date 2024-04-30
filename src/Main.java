@@ -1,3 +1,4 @@
+import java.util.Objects;
 public class Main {
     public static void main(String[] args) {
         Author author1 = new Author("Сергей", "Лукьяненко");

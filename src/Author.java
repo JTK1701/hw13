@@ -1,3 +1,4 @@
+import java.util.Objects;
 
 public class Author {
     private String firstName;
@@ -27,7 +28,7 @@ public class Author {
         return this.lastName;
     }
 
-
+    @Override
     public String toString() {
 
         if (secondName == null) {
@@ -37,23 +38,20 @@ public class Author {
         }
     }
 
+    @Override
     public int hashCode() {
-        int resultHashCode = firstName.hashCode();
-        resultHashCode += lastName.hashCode() * 29;
-        return resultHashCode;
+        return java.util.Objects.hash(this.toString());
     }
 
-    public boolean equals(Author a) {
-        if (firstName == null || lastName == null) {
+    @Override
+    public boolean equals(Object other) {
+        if (this.hashCode() != other.hashCode() || this.getClass() != other.getClass()) {
             return false;
         }
-        if (this.firstName == a.firstName && this.lastName == a.lastName) {
-            return true;
-        } else if (this.firstName == a.firstName && this.secondName == a.secondName && this.lastName == a.lastName) {
+        if (this.firstName == ((Author) other).firstName && this.secondName == ((Author) other).secondName && this.lastName == ((Author) other).lastName) {
             return true;
         }
-        return false;
+        return this.toString().equals(other.toString());
     }
-
 }
 
