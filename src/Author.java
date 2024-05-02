@@ -45,18 +45,9 @@ public class Author {
 
     @Override
     public boolean equals(Object other) {
-        if (this.hashCode() != other.hashCode() || this.getClass() != other.getClass()) {
+        if (this == other || other == null || this.hashCode() != other.hashCode() || this.getClass() != other.getClass()) {
             return false;
         }
-        if (this.secondName != null) {
-            if (this.firstName.equals(((Author) other).firstName) && this.secondName.equals(((Author) other).secondName) && this.lastName.equals(((Author) other).lastName)) {
-                return true;
-            }
-        } else {
-            if (this.firstName.equals(((Author) other).firstName) && this.lastName.equals(((Author) other).lastName)) {
-                return true;
-            }
-        }
-        return this.toString().equals(other.toString());
+        return  Objects.equals(this.firstName, ((Author) other).firstName) && Objects.equals(this.secondName, ((Author) other).secondName) && Objects.equals(this.lastName, ((Author) other).lastName);
     }
 }
